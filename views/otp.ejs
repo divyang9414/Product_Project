@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OTP Verify</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .otp {
+            text-align: center;
+            font-size: 24px;
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+            display: inline-block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row vh-100 justify-content-center align-items-center">
+            <div class="col-md-6 p-5">
+                <h2 class="text-center mt-5">OTP Verify</h2>
+                <form action="/otpVerify" method="POST">
+                    <div class="form-group text-center">
+                        <label for="otp" style="display: block;">OTP</label>
+                        <input class="otp form-control d-inline-block" type="text" name="otpB1" id="otp" required maxlength="1" />
+                        <input class="otp form-control d-inline-block" type="text" name="otpB2" id="otp" required maxlength="1" />
+                        <input class="otp form-control d-inline-block" type="text" name="otpB3" id="otp" required maxlength="1" />
+                        <input class="otp form-control d-inline-block" type="text" name="otpB4" id="otp" required maxlength="1" />
+                        <input class="otp form-control d-inline-block" type="text" name="otpB5" id="otp" required maxlength="1" />
+                        <input class="otp form-control d-inline-block" type="text" name="otpB6" id="otp" required maxlength="1" />
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Verify</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

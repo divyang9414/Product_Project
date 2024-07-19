@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit Item Form</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+</head>
+
+<body style="overflow: hidden">
+    <div id="header"><%- include("../partials/header.ejs") -%></div>
+    <div class="d-flex vh-100 justify-content-center align-items-center">
+        <form class="border border-3 p-5 rounded-5" action="/editProduct" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="extraid" value="<%= editData._id %>">
+            <input type="hidden" name="subid" value="<%= subId._id %>">
+            <input type="hidden" name="catid" value="<%= CatId._id %>">
+            <input type="hidden" name="old_img" value="<%= editData.image %>">
+            <div class="form-group">
+                <label for="title">Title</label>
+                <input type="text" class="form-control mb-3" id="title" value="<%= editData.title %>" name="title" />
+                <div class="form-group">
+                    <label for="category">Category</label>
+                    <select id="SelectCategory" class="form-control mb-3" name="category">
+                        <option value="<%= CatId.category %>" disabled selected>
+                            <%= CatId.category %>
+                        </option>
+                        <option value="Fashion">Fashion</option>
+                        <option value="Electronics">Electronics</option>
+                    </select>
+                </div>
+                <div class="form-group" id="subCategory">
+                    <option value="<%= CatId.subcategory %>" disabled selected>
+                        <%= CatId.subcategory %>
+                    </option>
+                </div>
+                <div class="form-group" id="extraCategory">
+                    <option value="<%= CatId.extracategory  %>" disabled selected>
+                        <%= CatId.extracategory %>
+                    </option>
+                </div>
+                <div class="form-group">
+                    <label for="price">Price</label>
+                    <input type="number" class="form-control mb-3" id="price" value="<%= editData.price %>"
+                        name="price" />
+                </div>
+                <div class="form-group">
+                    <label for="discount">Discount</label>
+                    <input type="number" step="0.01" class="form-control mb-3" id="discount"
+                        value="<%= editData.discount %>" name="discount" />
+                </div>
+                <div class="form-group">
+                    <label for="file">Upload Image</label>
+                    <input type="file" class="form-control-file mb-3" id="file" name="image" accept="image/*" />
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const subCategory = {
+                electronics: ["Mobile", "Refrigerator", "AC", "TV"],
+                fashion: ["T_Shirt", "Shirt", "Paint"]
+            };
+
+            const extraCategory = {
+                mobile: ["Oppo", "Vivo", "Samsung", "iPhone", "Redmi", "MI", "Realme"],
+                refrigerator: ["Samsung", "Huwai", "Godrej", "PoweCool"],
+                ac: ["Samsung", "Huwai", "Godrej", "PoweCool"],
+                tv: ["Samsung", "Redmi", "MI"],
+                t_shirt: ["Adidas", "Tommy Hilfiger", "Allen Solly", "US Polo", "Calvin Klein", "Arrow New York"],
+                shirt: ["Adidas", "Tommy Hilfiger", "Allen Solly", "US Polo", "Calvin Klein", "Arrow New York"],
+                paint: ["Adidas", "Tommy Hilfiger", "Allen Solly", "US Polo", "Calvin Klein", "Arrow New York"]
+            };
+
+            const category = document.getElementById("SelectCategory");
+            const sub = document.getElementById("subCategory");
+            const subshow = document.getElementById("subCategory");
+            const extra = document.getElementById("extraCategory");
+            const extrashow = document.getElementById("extraCategory");
+
+            category.addEventListener("change", () => {
+                const selectedCategory = category.value.toLowerCase();
+                subshow.style.display="block";
+                let options = '<label for="subcategory">SubCategory</label><select class="form-control mb-3" id="subcategory" name="subcategory" >';
+
+                if (subCategory[selectedCategory]) {
+                    subCategory[selectedCategory].forEach(ele => {
+                        options += `<option value="${ele.toLowerCase()}">${ele}</option>`;
+                    });
+                }
+                sub.innerHTML = options + '</select>';
+                extra.innerHTML = '';
+
+                document.getElementById("subcategory").addEventListener("change", () => {
+                    const selectedSubCategory = document.getElementById("subcategory").value.toLowerCase();
+                    extrashow.style.display="block";
+                    let extraOptions = '<label for="extracategory">ExtraCategory</label><select class="form-control mb-3" id="extracategory" name="extracategory" >';
+
+                    if (extraCategory[selectedSubCategory]) {
+                        extraCategory[selectedSubCategory].forEach(ele => {
+                           extraOptions += `<option value="${ele.toLowerCase()}">${ele}</option>`;
+                        });
+                    }
+                    extra.innerHTML = extraOptions + '</select>';
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

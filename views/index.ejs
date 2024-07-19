@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/css/style.css"/>
+    <style>
+        .card {
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .card img {
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .btn-custom {
+            background-color: #007bff;
+            color: white;
+            border: none;
+        }
+
+        .btn-custom:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="header"><%- include("../partials/header.ejs") -%></div>
+    <div class="container">
+        <div id="card-area" class="row p-5 m-5">
+            <% findData.forEach(val => { %>
+                <% val.subCategorySchema.forEach(sub => { %>
+                    <% val.extraCategorySchema.forEach(extra => { %>
+                        <div class="col-md-6 col-xl-4">
+                            <div class="card mt-5 p-2 rounded-3 position-relative border-3">
+                                <img src="<%= extra.image %>" alt="<%= extra.title %>" class="img-fluid border p-3 border-3 rounded-2" id="img">
+                                <div class="card-body">
+                                    <div class="card-title" id="addtocart">
+                                        <h5 class="fw-bold text-center"><%= extra.title %></h5>
+                                        <p class="text-center text-muted"><%= extra.description %></p>
+                                        <div class="d-grid gap-2">
+                                            <a href="/edit?id=<%= val._id %>, <%= sub._id %>, <%= extra._id %>" class="btn btn-custom">Edit Data</a>
+                                            <a href="/delete?id=<%= val._id %>, <%= sub._id %>, <%= extra._id %>" class="btn btn-danger">Delete Data</a>
+                                        </div>
+                                        <div class="mt-3 text-center">
+                                            <span class="fw-bold">Price: <%= extra.price %></span>
+                                            <div class="text-center mt-1 fw-bold">
+                                                <span>&nbsp<del>$5,999</del><span class="text-success">&nbspoff</span></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    <% }); %>
+                <% }); %>
+            <% }); %>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
+    

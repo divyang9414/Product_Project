@@ -1,0 +1,394 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+:root {
+    --h-h1-color: #42ff86;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+.header-bg {
+    background-color: rgba(33, 51, 68, 95%) !important;
+
+}
+
+aside {
+    display: none;
+}
+
+.p-80 {
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+.fs-14px {
+    font-size: 14px !important;
+}
+
+.end-10px {
+    right: 10px !important;
+}
+
+/* --------------------------------------------------- header start --------------------------------------------------------- */
+
+header ul li {
+    position: relative;
+}
+
+header ul li:hover a {
+    color: #42ff86 !important;
+    letter-spacing: 2px;
+    transition: all 1s ease-out;
+}
+
+.h-nav ul li::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 3px;
+    background-color: #42ff86;
+    transition: all 0.5s ease;
+}
+
+.h-nav ul li::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 0%;
+    height: 3px;
+    background-color: #42ff86;
+    transition: all 0.5s ease;
+}
+
+.h-nav ul li:hover::after {
+    width: 50%;
+}
+
+.h-nav ul li:hover::before {
+    width: 50%;
+}
+
+/* --------------------------------------------------- header end --------------------------------------------------------- */
+
+/* --------------------------------------------------- assesories start --------------------------------------------------------- */
+.p-360 h3::after {
+    width: 200px;
+}
+
+.card {
+    background-color: #fff;
+    box-shadow: 19.799px 19.799px 40px 0 rgba(0, 0, 0, 0.2);
+}
+
+.card img {
+    background-color: #fff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transition: all 0.5s ease;
+    height: 332px !important;
+    object-fit: contain;
+}
+
+.card:hover .title-m{
+    margin-top: 0 !important;
+}
+
+.card:hover img {
+    transform: translateY(-50px);
+    box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+}
+
+.card-title .add {
+    background-color: #000;
+    transform: translateX(-200px);
+    transition: all 0.5s ease;
+    margin-top: -70px;
+}
+
+.card-title {
+    overflow: hidden;
+}
+
+.card-title a,
+.card-title button {
+    background-color: #000;
+    transform: translateX(200px);
+    transition: all 0.5s ease;
+    margin: auto;
+}
+
+.card:hover a,
+.card:hover button {
+    margin-top: 0;
+    display: block !important;
+    transform: translateX(0px) !important;
+}
+
+.card button:hover {
+    background-color: #42ff86;
+    color: #000 !important;
+}
+
+.rating i {
+    color: gold !important;
+}
+
+.col-circle:hover {
+    /* width: 22px !important;
+    height: 22px !important; */
+    transform: scale(0.8);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.as-btn {
+    font-size: 13px !important;
+    transition: all 0.5s ease;
+}
+
+.as-btn:hover a {
+    color: #fff !important;
+    background-color: #041a2c !important;
+}
+
+.as-img-2 {
+    display: none;
+}
+
+.as-card:hover .as-img-1 {
+    transition: opacity 0.8s, transform 2s cubic-bezier(0, 0, 0.44, 1.18);
+    transform: scale(1.2);
+}
+
+/* --------------------------------------------------- assesories end --------------------------------------------------------- */
+
+/* --------------------------------------------------- service start --------------------------------------------------------- */
+.service {
+    background-color: #ebfbff;
+}
+
+.service a:hover {
+    color: #42ff86 !important;
+}
+
+/* --------------------------------------------------- service end --------------------------------------------------------- */
+
+/* --------------------------------------------------- footer start --------------------------------------------------------- */
+footer {
+    background-color: #041a2c;
+}
+
+/* --------------------------------------------------- footer end --------------------------------------------------------- */
+
+/* --------------------------------------------------- login modal start --------------------------------------------------------- */
+.login-switcher {
+    background-color: #e4e7ea;
+    height: 70px;
+}
+
+.login-toogle {
+    width: calc(50% - 20px);
+    height: 40px;
+    border-radius: 3px;
+    box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.9);
+    z-index: 99 !important;
+    top: 15px;
+}
+
+.register-body {
+    display: none;
+}
+
+.modal-content {
+    width: 400px !important;
+    height: 510px;
+}
+
+.h-670 {
+    height: 670px !important;
+}
+
+.modal .form-control {
+    font-size: 12px !important;
+    opacity: 50% !important;
+    font-weight: bold;
+}
+
+.modal .button a {
+    background-color: var(--h-h1-color);
+    transition: all 0.2s;
+}
+
+.modal .button:hover a {
+    background-color: #000;
+    color: var(--h-h1-color) !important;
+}
+
+/* --------------------------------------------------- login modal end --------------------------------------------------------- */
+
+/* --------------------------------------------------- cart start --------------------------------------------------------- */
+.quantity-control {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: fit-content;
+    margin: 0 auto;
+    background: #f8f5f5;
+    border-radius: 10px;
+    padding: 1rem 0.4rem;
+    margin-top: 4rem;
+}
+
+.quantity-btn {
+    background: transparent;
+    border: none;
+    outline: none;
+    margin: 0;
+    padding: 0px 8px;
+    cursor: pointer;
+}
+
+.quantity-btn svg {
+    width: 15px;
+    height: 15px;
+}
+
+.quantity-input {
+    outline: none;
+    user-select: none;
+    text-align: center;
+    width: 47px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+}
+
+.quantity-input::-webkit-inner-spin-button,
+.quantity-input::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.PAY-BTN a {
+    background-color: #ffc439;
+}
+
+.div {
+    display: none;
+}
+
+/* --------------------------------------------------- cart end --------------------------------------------------------- */
+
+
+
+@media (max-width: 992px) {
+    .div {
+        display: block;
+    }
+
+    .div1 {
+        display: none;
+    }
+}
+
+#myform {
+    text-align: center;
+    padding: 5px;
+    border: 1px dotted #ccc;
+    margin: 2%;
+}
+
+.qty {
+    width: 40px;
+    height: 25px;
+    text-align: center;
+}
+
+input.qtyplus {
+    width: 25px;
+    height: 25px;
+}
+
+input.qtyminus {
+    width: 25px;
+    height: 25px;
+}
+
+#qty {
+    width: 15px;
+    margin-left: 4.2rem;
+    border: none;
+    outline: none;
+    text-align: center;
+    background: transparent;
+}
+
+/* #clearcart{
+    display: none;
+} */
+
+#count {
+    top: 0;
+    right: -5px;
+    color: skyblue;
+    font-weight: bolder;
+    display: nonej;
+    text-align: center;
+}
+
+#addqty,
+#remqty {
+    background: transparent;
+    border: 0;
+    outline: 0;
+}
+
+#addqty:hover,
+#remqty:hover {
+    background-color: lightgray;
+    transition: all .4s linear;
+}
+
+.price {
+    margin-left: -2%;
+}
+
+.total {
+    margin-left: -1.5%;
+}
+
+.clear:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+    transition: all .2s linear;
+}
+
+.remove:hover {
+    transform: scale(1.2);
+    cursor: pointer;
+    transition: all .2s linear;
+}
+
+.clear img {
+    width: 40px !important;
+}
+
+#subCategory{
+    display: none;
+}
+
+#extraCategory{
+    display: none;
+}
